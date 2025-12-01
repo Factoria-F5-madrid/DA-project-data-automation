@@ -1,3 +1,5 @@
+<img width="11520" height="3456" alt="Banner Proyectos" src="https://github.com/user-attachments/assets/407d4b1a-84ae-415a-b874-95f3d3558075" />
+
 # 📊 Proyecto - Automatización MySQL → Python → Excel
 
 ## 📝 Descripción del proyecto

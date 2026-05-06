@@ -4,14 +4,14 @@
 
 ## 📝 Descripción del proyecto
 
-Este proyecto automatiza la extracción y análisis de datos de la base de datos SQL usando Python, generando un archivo CSV que se conecta automáticamente a un libro de Excel. 
+Este proyecto automatiza la extracción y análisis de datos de la base de datos SQL usando Python, generando varios archivos CSV que se conectan automáticamente a un libro de Excel. 
 
 **Enfoque híbrido:** Automatización del flujo y carga de datos + diseño manual en Excel. La actualización de datos es automática, pero conservas total libertad creativa para el diseño del dashboard.
 
 ## 🎯 Objetivos concretos
 
 - Automatizar la extracción de datos desde MySQL hacia Excel
-- Generar un dataset en formato CSV pre-procesado para análisis
+- Generar 3 o más datasets en formato CSV pre-procesados para análisis
 - Crear un flujo de trabajo simple: Python genera → Excel visualiza
 - Documentar y estructurar el proyecto para fácil mantenimiento
 
@@ -50,7 +50,7 @@ Para el caso de la base de datos Sakila, el proyecto se enfocará en analizar:
 **El proyecto es en grupos.**
 
 - Repositorio en Github
-- Archivo Excel con tres hojas (Datos, Tablas dinámicas, Dashboard)
+- Archivo Excel con conexion a Datos, Tablas dinámicas, y un Dashboard
 - **Documentación completa**:
   - README con instrucciones de instalación y uso
   - Documentación del proceso de automatización completo
@@ -72,7 +72,9 @@ proyecto-sakila-automation/
 │   └── config.py              (configuración desde .env)
 │
 ├── output/                    📂 Datos procesados (CSVs)
-│   ├── datos_sakila.csv
+│   ├── Clientes_sakila.csv
+│   ├── movies.csv            
+│   └── casting.csv           
 │
 ├── dashboard/                 📊 Visualización (Excel)
 │   ├── sakila_dashboard.xlsx  (tu dashboard de Excel)
@@ -86,7 +88,7 @@ proyecto-sakila-automation/
 
 **Organización clara:**
 - **src/** = Procesamiento automatizado (Python)
-- **output/** = CSV con datos de pre-procesados
+- **output/** = CSVs con datos de pre-procesados
 - **dashboard/** = Documento xlsx de visualización final (Excel)
 
 **🔒 IMPORTANTE:** El archivo `.env` contiene tus credenciales y NO se sube a Git (está en `.gitignore`)
@@ -104,13 +106,12 @@ proyecto-sakila-automation/
 
 - [ ] Implementar conexión a base de datos
 - [ ] Crear consultas SQL optimizadas para extracción de datos
-- [ ] Desarrollar funciones de transformación con Pandas
 - [ ] Implementar generación de dataset
 - [ ] Crear sistema de exportación automática
 
 ### Integración con Excel
 
-- [ ] Desarrollar generador automático de archivo CSV estructurado
+- [ ] Desarrollar generador automático de archivos CSV estructurados
 - [ ] Implementar formateo de datos compatible con Excel
 - [ ] Crear estructura de datos para dashboard
 - [ ] Agregar manejo de archivos y rutas

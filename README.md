@@ -78,15 +78,14 @@ proyecto-sakila-automation/
 │   └── top_peliculas.sql
 │
 ├── output/                    📂 Datos procesados (CSVs)
-│   ├── Clientes_sakila.csv    (desde queries
-│   ├── movies.csv             (desde queries
-│   ├── casting.csv            (desde queries
+│   ├── Clientes_sakila.csv    (desde queries)
+│   ├── movies.csv             (desde queries)
+│   ├── casting.csv            (desde queries)
 │   ├── top_peliculas.csv      (desde queries)
 │
 ├── dashboard/                 📊 Visualización (Excel)
-│   ├── sakila_dashboard.xlsx
 │   ├── README.md              (guía del dashboard)
-│   └── Sakila_Dashboard.xlsx  (versión alternativa o respaldo)
+│   └── Sakila_Dashboard.xlsx  
 │
 ├── .venv/                     🐍 Entorno virtual Python (ignorado por Git)
 │

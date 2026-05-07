@@ -71,19 +71,30 @@ proyecto-sakila-automation/
 │   ├── sakila_ETL.py         (extracción y transformación de datos)
 │   └── config.py              (configuración desde .env)
 │
+├── queries/                   📜 Consultas SQL organizadas
+│   ├── Clientes_sakila.sql
+│   ├── movies.sql
+│   ├── casting.sql
+│   └── top_peliculas.sql
+│
 ├── output/                    📂 Datos procesados (CSVs)
-│   ├── Clientes_sakila.csv
-│   ├── movies.csv            
-│   └── casting.csv           
+│   ├── Clientes_sakila.csv    (desde queries
+│   ├── movies.csv             (desde queries
+│   ├── casting.csv            (desde queries
+│   ├── top_peliculas.csv      (desde queries)
 │
 ├── dashboard/                 📊 Visualización (Excel)
-│   ├── sakila_dashboard.xlsx  (tu dashboard de Excel)
+│   ├── sakila_dashboard.xlsx
+│   ├── README.md              (guía del dashboard)
+│   └── Sakila_Dashboard.xlsx  (versión alternativa o respaldo)
+│
+├── .venv/                     🐍 Entorno virtual Python (ignorado por Git)
 │
 ├── requirements.txt           (dependencias Python)
 ├── .env                       🔒 Credenciales (configurado ✓)
 ├── .env.example               (plantilla)
 ├── .gitignore                 (protección Git)
-└── README.md                  (esta guía)
+└── README.md                  (guía principal del proyecto)
 ```
 
 **Organización clara:**

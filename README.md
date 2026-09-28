@@ -48,7 +48,7 @@ Para la base de datos Olist, el proyecto se enfocará en analizar:
 - Identificación de vendedores y categorías clave
 
 > [!WARNING]
-> Recordad la trampa del grano del Proyecto III: un `JOIN` de `orders` con `order_items`, `order_payments` y `order_reviews` sin agregar antes infla la facturación un **29%**. En un ETL automatizado ese error se repite en **cada ejecución** y nadie lo revisa. Aquí es donde más caro sale.
+> Recordad la trampa del grano del Proyecto III: un `JOIN` de `orders` con `order_items`, `order_payments` y `order_reviews` sin agregar antes infla la facturación un **26%**. En un ETL automatizado ese error se repite en **cada ejecución** y nadie lo revisa. Aquí es donde más caro sale.
 
 ## 🧰 Tecnologías
 

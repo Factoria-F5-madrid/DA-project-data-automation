@@ -15,22 +15,40 @@ Este proyecto automatiza la extracción y análisis de datos de la base de datos
 - Crear un flujo de trabajo simple: Python genera → Excel visualiza
 - Documentar y estructurar el proyecto para fácil mantenimiento
 
+## 🔗 Este proyecto continúa el Proyecto III
+
+En el Proyecto III vuestro equipo extrajo un dataset analítico de Olist **a mano**: escribisteis la consulta, la ejecutasteis una vez y exportasteis un CSV.
+
+Aquí convertís eso en un **proceso que se ejecuta solo**. Misma base, mismos equipos, mismo grano — pero ahora es código que cualquiera puede correr y obtener datos frescos.
+
+De vuestra entrega del Proyecto III necesitáis tres cosas:
+
+| Lo que traéis de P3 | Para qué sirve aquí |
+| :--- | :--- |
+| **El grano declarado** | El ETL debe respetarlo en cada ejecución |
+| **La consulta SQL final** | Es el punto de partida de `queries/` |
+| **Los KPIs definidos** | Son las tablas dinámicas del dashboard |
+
 ## 🗄️ Base de datos utilizada
 
-Para este proyecto, trabajaremos con la base de datos Sakila, una base de datos de ejemplo que simula el sistema de una tienda de alquiler de películas. 
+- **Base de datos**: **Olist** (MySQL), la misma del Proyecto III
+- **Contenido**: 99.441 pedidos reales de un marketplace brasileño (2016-2018): clientes, pedidos, artículos, pagos, reseñas, productos, vendedores y geolocalización
+- **Instalación**: si aún no la tenéis cargada, el volcado está en la [carpeta de formación en Drive](https://drive.google.com/drive/folders/1apSXjn6eQ5o9RdutbD4skSjvH6ytvR06?usp=sharing) (`olist.sql.gz`)
 
-- **Base de datos**: Sakila (MySQL)
-- **Contenido**: Datos de clientes, direcciones, países, ciudades, alquileres y pagos.
-- El estudiante podrá utilizar otra base de datos que prefiera 
+> [!NOTE]
+> Como siempre, el equipo puede traer **otra base de datos** si tiene una idea mejor. Pero entonces tiene que arrastrarla también al Proyecto V, porque los tres están encadenados.
 
 ## 📊 Análisis objetivo
 
-Para el caso de la base de datos Sakila, el proyecto se enfocará en analizar:
+Para la base de datos Olist, el proyecto se enfocará en analizar:
 
-- Comportamiento de clientes y patrones de consumo
-- Distribución geográfica de ingresos (países y ciudades)
-- Tendencias temporales de alquileres y pagos
-- Identificación de clientes VIP y mercados clave
+- Comportamiento de clientes y patrones de compra
+- Distribución geográfica de ingresos (estados y ciudades de Brasil)
+- Tendencias temporales de pedidos, pagos y tiempos de entrega
+- Identificación de vendedores y categorías clave
+
+> [!WARNING]
+> Recordad la trampa del grano del Proyecto III: un `JOIN` de `orders` con `order_items`, `order_payments` y `order_reviews` sin agregar antes infla la facturación un **26%**. En un ETL automatizado ese error se repite en **cada ejecución** y nadie lo revisa. Aquí es donde más caro sale.
 
 ## 🧰 Tecnologías
 
@@ -45,9 +63,11 @@ Para el caso de la base de datos Sakila, el proyecto se enfocará en analizar:
 - **Excel** - Diseño de dashboards y visualizaciones
 - **Control de versiones**: Git & github
 
-## 📦 Condiciones de entrega
+## 👥 Equipos
 
-**El proyecto es en grupos.**
+**Equipos de 3 o 4 personas**, los mismos que en el Proyecto III y que seguiréis en el Proyecto V.
+
+## 📦 Condiciones de entrega
 
 - Repositorio en Github
 - Archivo Excel con conexion a Datos, Tablas dinámicas, y un Dashboard
@@ -62,30 +82,30 @@ Para el caso de la base de datos Sakila, el proyecto se enfocará en analizar:
 ## 🏗️ Estructura del proyecto
 
 ```
-proyecto-sakila-automation/
+proyecto-olist-automation/
 │
 ├── main.py                    ⭐ EJECUTAR ESTE (punto de entrada)
 │
 ├── src/                       📦 Código fuente (procesamiento)
 │   ├── __init__.py
-│   ├── sakila_ETL.py         (extracción y transformación de datos)
+│   ├── olist_ETL.py          (extracción y transformación de datos)
 │   └── config.py              (configuración desde .env)
 │
 ├── queries/                   📜 Consultas SQL organizadas
-│   ├── Clientes_sakila.sql
-│   ├── movies.sql
-│   ├── casting.sql
-│   └── top_peliculas.sql
+│   ├── clientes_actividad.sql
+│   ├── catalogo_productos.sql
+│   ├── vendedores.sql
+│   └── entregas_retrasos.sql
 │
 ├── output/                    📂 Datos procesados (CSVs)
-│   ├── Clientes_sakila.csv    (desde queries)
-│   ├── movies.csv             (desde queries)
-│   ├── casting.csv            (desde queries)
-│   ├── top_peliculas.csv      (desde queries)
+│   ├── clientes_actividad.csv (desde queries)
+│   ├── catalogo_productos.csv (desde queries)
+│   ├── vendedores.csv         (desde queries)
+│   ├── entregas_retrasos.csv  (desde queries)
 │
 ├── dashboard/                 📊 Visualización (Excel)
 │   ├── README.md              (guía del dashboard)
-│   └── Sakila_Dashboard.xlsx  
+│   └── Olist_Dashboard.xlsx   
 │
 ├── .venv/                     🐍 Entorno virtual Python (ignorado por Git)
 │
@@ -107,7 +127,7 @@ proyecto-sakila-automation/
 
 ### Configuración inicial
 
-- [ ] Instalar y configurar MySQL con base de datos Sakila
+- [ ] Instalar y configurar MySQL con la base de datos Olist
 - [ ] Crear entorno virtual de Python
 - [ ] Instalar dependencias del proyecto
 - [ ] Configurar variables de entorno para conexión DB
@@ -131,6 +151,12 @@ proyecto-sakila-automation/
 
 - [ ] Crear script principal de ejecución (main.py)
 - [ ] Implementar manejo de errores
+
+## 🔜 Qué pasa al Proyecto V
+
+Los CSV que genere vuestro ETL son la fuente del **Proyecto V (Power BI)**. Allí rehacéis este mismo dashboard con una herramienta profesional: modelo en estrella, medidas DAX e interactividad real.
+
+Merece la pena que mientras montáis el Excel anotéis **qué querríais hacer y no podéis**. Esa lista es el guion del siguiente proyecto.
 
 ## 🧪 Criterios de evaluación
 - Configurar y automatizar su entorno de trabajo.
